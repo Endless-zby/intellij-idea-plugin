@@ -1,0 +1,47 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.example.demo</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Demo</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="381016296@qq.com" url="https://www.byzhao.cn">Your Company</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    杭州接口文档代码生成器.<br>
+<em>插件功能页面：Tools -> Auto Analysis Excel</em><br>
+<em>插件设置页面：Settings -> Tools -> Generate Code</em>
+
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij</depends>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
+    <!--    <depends>com.intellij.modules.lang</depends>-->
+    <!--    <depends>org.jetbrains.kotlin</depends>-->
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+                parentId="tools"
+                instance="demo.example.demo.setting.AppSettingsConfigurable"
+                id="demo.example.demo.setting.AppSettingsConfigurable"
+                displayName="Generate Code"/>
+        <applicationService
+                serviceImplementation="demo.example.demo.setting.AppSettingsState"/>
+    </extensions>
+    <actions>
+        <action id="MyFirstPlug" class="demo.example.demo.MyFirstPlug" text="Auto Analysis Excel" description="代销服务代码生成器">
+            <add-to-group group-id="ToolsMenu" anchor="first" />
+        </action>
+    </actions>
+</idea-plugin>
